@@ -1,5 +1,6 @@
 package com.example.vikaslandge.firebaseauth
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         Loginbutton.setOnClickListener {
             mAuth!!.signInWithEmailAndPassword(editTextEmail.text.toString(),editText2Pass.text.toString()).addOnCompleteListener {
                 if (it.isSuccessful){
+                    var i= Intent(this,login::class.java)
+                    startActivity(i)
                     Toast.makeText(this,"Login successful",Toast.LENGTH_LONG).show()
                 }
                 else{
